@@ -15,10 +15,7 @@ public class EnemyAgent : MonoBehaviour
     {
         var distance = target.position.x - transform.position.x;
         MovementDir = new Vector2(distance == 0 ? 0 : (distance > 0 ? 1 : -1), 0);
-        if (_prevDir != MovementDir)
-        {
-            OnMovementEvent?.Invoke(MovementDir);
-        }
+        OnMovementEvent?.Invoke(MovementDir);
         _prevDir = MovementDir;
     }
 }
