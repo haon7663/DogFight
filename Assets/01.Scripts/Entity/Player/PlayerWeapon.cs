@@ -12,7 +12,7 @@ public class PlayerWeapon : MonoBehaviour
 
     private int _comboCounter = 0;
     private float _lastAttackTime = 0;
-    private float _comboInitTime = 1f;
+    private float _comboInitTime = 0.7f;
     private float _comboInitTimer = 0f;
     private float _attackDelay = 0.1f;
     private bool _isAttacking = false;

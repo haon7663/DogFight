@@ -8,7 +8,7 @@ public class PlayerAttackState : State<Player>
 {
     private Animator _handAnimator;
     private float _lastAttackTime;
-    private float _comboInitTime = 0.8f;
+    private float _comboInitTime = 0.7f;
     private int _comboCounter = 0;
     private readonly int _comboCounterHash = Animator.StringToHash("ComboCounter");
 
