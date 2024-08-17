@@ -7,12 +7,12 @@ public class HealthBarController : MonoBehaviour
     [SerializeField] private HealthBar healthBarPrefab;
     [SerializeField] private Transform canvas;
 
-    public void ConnectPanel(GameObject obj)
+    public void Connect(GameObject obj)
     {
-        /*if (!obj.TryGetComponent<Health>(out var health))
+        if (!obj.TryGetComponent<Health>(out var health))
             return;
 
-        var previewStat = Instantiate(statBarPrefab, canvas);
-        previewStat.Init(obj);*/
+        var healthBar = Instantiate(healthBarPrefab, canvas);
+        healthBar.Initialize(obj);
     }
 }
