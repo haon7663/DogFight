@@ -25,7 +25,7 @@ public class PlayerAirState : State<Player>
     private void HandleOnMovementEvent(Vector2 movement)
     {
         _owner.MovementCompo.SetMove(movement);
-        if (movement.sqrMagnitude < 0.05f)
+        if (movement.magnitude > 0.5f)
         {
             _stateMachine.ChangeState(PlayerStateEnum.Idle);
         }

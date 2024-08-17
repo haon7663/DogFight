@@ -21,8 +21,11 @@ public class PlayerMovement : MonoBehaviour
     public void SetMove(Vector2 dir)
     {
         float yVel = RigidbodyCompo.velocity.y;
-        bool flip = dir == Vector2.left ? false : true;
-        _player.Flip(flip);
+        if(dir != Vector2.zero)
+        {
+            bool flip = dir == Vector2.left ? true : false;
+            _player.Flip(flip);
+        }
         RigidbodyCompo.velocity = new Vector3(0, yVel, 0) +  (Vector3)(dir * _moveSpeed);
     }
 

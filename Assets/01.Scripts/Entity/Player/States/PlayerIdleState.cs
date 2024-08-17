@@ -14,12 +14,13 @@ public class PlayerIdleState : PlayerGroundState
         base.Enter();
         _owner.MovementCompo.StopImmediately();
         _owner.InputCompo.OnMovementEvent += HandleOnMovementEvent;
+        HandleOnMovementEvent(_owner.InputCompo.Movement);
     }
 
     private void HandleOnMovementEvent(Vector2 movement)
     {
         base.UpdateState();
-        if(movement.sqrMagnitude > 0.05f)
+        if(movement.magnitude > 0.05f)
         {
             _stateMachine.ChangeState(PlayerStateEnum.Move);
         }
