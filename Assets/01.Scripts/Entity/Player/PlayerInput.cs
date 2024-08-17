@@ -9,7 +9,7 @@ public class PlayerInput : MonoBehaviour
     private FixedJoystick _joystick;
 
     public Vector2 MovementDir { get; private set; }
-    public Vector2 _prevDir = Vector2.zero;
+    private Vector2 _prevDir = Vector2.zero;
     public event Action<Vector2> OnMovementEvent;
     public event Action OnJumpEvent;
 
@@ -19,11 +19,11 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
+        MovementDir = _joystick.Direction.normalized;
         if(_prevDir != _joystick.Direction)
         {
-            OnMovementEvent?.Invoke(_joystick.Direction);
+            OnMovementEvent?.Invoke(MovementDir);
         }
-        MovementDir = _joystick.Direction;
-        _prevDir = _joystick.Direction;
+        _prevDir = MovementDir;
     }
 }

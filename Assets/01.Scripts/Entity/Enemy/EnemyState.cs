@@ -8,6 +8,7 @@ public abstract class EnemyState<T> where T : Enum
     protected EnemyStateMachine<T> _stateMachine;
     protected Enemy _enemyBase;
     protected bool _endTriggerCalled;
+
     
     public virtual void Enter()
     {

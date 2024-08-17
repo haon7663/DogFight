@@ -13,7 +13,7 @@ public abstract class Entity : MonoBehaviour
 {
     public Animator AnimatorCompo { get; protected set; }
     public SpriteRenderer RendererCompo { get; protected set; }
-    public bool IsFacingRight => transform.rotation.y < 100 ? true : false;
+    public bool IsFacingRight { get; private set; }
     public event Action<bool> OnFlipEvent;
     public WeaponSO CurrentWeapon { get; protected set; }
 
@@ -29,6 +29,7 @@ public abstract class Entity : MonoBehaviour
         float yRot = value ? 180f : 0f;
         transform.rotation = Quaternion.Euler(0f, yRot, 0f);
         OnFlipEvent?.Invoke(value);
+        IsFacingRight = value;
     }
 
     public abstract void AnimationTrigger(AnimationTriggerEnum triggerBit);

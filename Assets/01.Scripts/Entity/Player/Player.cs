@@ -36,22 +36,11 @@ public class Player : Entity
     {
         base.Awake();
         MovementCompo = GetComponent<PlayerMovement>();
+        MovementCompo.Initialize(this);
         InputCompo = GetComponent<PlayerInput>();
         StateMachine = new StateMachine<Player>(this);
-        foreach (PlayerStateEnum stateEnum in Enum.GetValues(typeof(PlayerStateEnum)))
-        {
-            string enumName = stateEnum.ToString();
-            try
-            {
-                Type t = Type.GetType($"Player{enumName}State");
-                State<Player> state = Activator.CreateInstance(t, this, StateMachine, enumName) as State<Player>;
-                StateMachine.AddState(state, stateEnum);
-            }
-            catch (Exception e)
-            {
-                Debug.LogError($"{enumName} class doesn't exist! : {e.Message}");
-            }
-        }
+
+        StateMachine.Initialize(PlayerStateEnum.Idle);
     }
 
     private void Update()

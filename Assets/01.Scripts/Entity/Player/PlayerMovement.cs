@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private Player _player;
     public Rigidbody2D RigidbodyCompo { get; private set; }
     [Header("Movement Value")]
     [SerializeField]
@@ -11,14 +12,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float _jumpPower = 5f;
 
-    private void Awake()
+    public void Initialize(Player player)
     {
+        _player = player;
         RigidbodyCompo = GetComponent<Rigidbody2D>();
     }
 
     public void SetMove(Vector2 dir)
     {
-        RigidbodyCompo.velocity = dir * _moveSpeed;
+        float yVel = RigidbodyCompo.velocity.y;
+        bool flip = dir == Vector2.left ? false : true;
+        _player.Flip(flip);
+        RigidbodyCompo.velocity = new Vector3(0, yVel, 0) +  (Vector3)(dir * _moveSpeed);
     }
 
     public void Jump()
