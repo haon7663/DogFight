@@ -18,8 +18,13 @@ public class DroppedWeaponSpawner : MonoBehaviour
     private int _maximumSpawnCount = 15;
     [SerializeField]
     private float _spawnDelayTime = 3f;
-    [SerializeField]
     private float _spawnDelayTimer = 0f;
+
+    private void Start()
+    {
+        for (int i = 0; i < 8; i++)
+            SpawnWeapon();
+    }
 
     private void Update()
     {

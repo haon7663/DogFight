@@ -20,7 +20,7 @@ public class CameraManager : MonoSingleton<CameraManager>
         _perlin.m_AmplitudeGain = power;
         if (_shakeTween != null && _shakeTween.IsActive())
             _shakeTween.Kill();
-        _shakeTween = DOTween.To(() => _perlin.m_AmplitudeGain, v => _perlin.m_AmplitudeGain = v, 0, duration);
+        _shakeTween = DOTween.To(() => _perlin.m_AmplitudeGain, v => _perlin.m_AmplitudeGain = v, 0, duration).OnComplete(() => Camera.main.transform.rotation = Quaternion.identity);
     }
 
 }
