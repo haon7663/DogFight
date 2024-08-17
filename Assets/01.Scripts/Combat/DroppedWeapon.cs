@@ -7,6 +7,7 @@ public class DroppedWeapon : MonoBehaviour, IInteractable
     private WeaponSO _weaponSO;
 
     private SpriteRenderer _spriteRenderer;
+    private BoxCollider2D _collider;
 
     public void Initialize(WeaponSO weaponSO)
     {
