@@ -6,10 +6,11 @@ using UnityEngine;
 public class EnemySO : ScriptableObject
 {
     public RuntimeAnimatorController animatorController;
-    public float maxHp;
+    public int maxHp;
     public float moveSpeed;
     public int damage;
     public SquareAttackRange[] attackRange;
+    public Sprite weapon;
 
     public WeaponSO[] dropItems;
 }

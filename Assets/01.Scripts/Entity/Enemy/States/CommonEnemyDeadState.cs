@@ -18,6 +18,7 @@ public class CommonEnemyDeadState : State<CommonEnemy>
     {
         if (IsTriggerCalled(AnimationTriggerEnum.EndTrigger))
         {
+            BattleController.Inst.killCount++;
             _owner.Kill();
         }
     }

@@ -27,7 +27,7 @@ public class HealthBar : MonoBehaviour
     {
         var health = _obj.GetComponent<Health>();
         
-        var fill = health.curHp / health.maxHp;
+        var fill = (float)health.curHp / health.maxHp;
         hpSlider.value = fill;
         
         hpSlider.gameObject.SetActive(true);

@@ -29,7 +29,6 @@ public class PlayerWeapon : MonoBehaviour
     {
         DamageCasterCompo = GetComponent<SquareDamageCaster>();
         _playerBase = GetComponent<Player>();
-        SetWeapon(CurrentWeapon);
     }
 
     private void Update()

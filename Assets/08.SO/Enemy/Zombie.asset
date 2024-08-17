@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Zombie
   m_EditorClassIdentifier: 
   animatorController: {fileID: 22100000, guid: dfef5ed093e2a7741b89fcecab312c16, type: 2}
-  maxHp: 60
+  maxHp: 70
   moveSpeed: 5
   damage: 21
   attackRange:

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02f724aac93646d46b25494abf79624d, type: 3}
   m_Name: Skull
   m_EditorClassIdentifier: 
-  animatorController: {fileID: 22100000, guid: dfef5ed093e2a7741b89fcecab312c16, type: 2}
-  maxHp: 60
-  moveSpeed: 5
+  animatorController: {fileID: 22100000, guid: c4e0dbef1607a2446b5e766ae9dc4721, type: 2}
+  maxHp: 75
+  moveSpeed: 5.5
   damage: 21
   attackRange:
   - center: {x: 0, y: 0}
@@ -24,7 +24,14 @@ MonoBehaviour:
       y: 0
       width: 1
       height: 2
+  weapon: {fileID: 21300000, guid: 1b4bdee4bb9cc8b4b9caf561a93ae2e2, type: 3}
   dropItems:
+  - {fileID: 11400000, guid: bf72dfef8a2adaf45abddd7c7af6eea2, type: 2}
+  - {fileID: 11400000, guid: 1939a51648b018c419d5da4b02c4a014, type: 2}
+  - {fileID: 11400000, guid: 790fa460ee37cae42b348bcb8a5ce88b, type: 2}
   - {fileID: 11400000, guid: 19c96976a9f6b29449c6b86cee1c02ee, type: 2}
   - {fileID: 11400000, guid: 3489b026ece4c5943baab1f01bde5ecc, type: 2}
+  - {fileID: 11400000, guid: 3489b026ece4c5943baab1f01bde5ecc, type: 2}
+  - {fileID: 11400000, guid: 19c96976a9f6b29449c6b86cee1c02ee, type: 2}
+  - {fileID: 11400000, guid: 2e2da413fbfcd6947ba157a181a83983, type: 2}
   - {fileID: 11400000, guid: 2e2da413fbfcd6947ba157a181a83983, type: 2}

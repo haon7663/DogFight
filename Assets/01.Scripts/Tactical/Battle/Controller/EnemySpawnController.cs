@@ -8,6 +8,8 @@ using Random = UnityEngine.Random;
 public class EnemyWave
 {
     public EnemySO[] enemySOs;
+    public float nextWaveTime;
+    public float spawnTime;
 
     public EnemySO EnemySO => enemySOs[Random.Range(0, enemySOs.Length)];
 }
@@ -18,13 +20,13 @@ public class EnemySpawnController : MonoBehaviour
     
     [Header("Waves")]
     [SerializeField] private List<EnemyWave> enemyWave;
-    [SerializeField] private float[] spawnTimes;
     
     [Header("Offset")]
     [SerializeField] private Vector3[] offsetSpawnPoints;
     
     private float _spawnTime;
     private int _currentWave;
+    private float _waveTime = 15;
 
     private void Start()
     {
@@ -36,8 +38,16 @@ public class EnemySpawnController : MonoBehaviour
         _spawnTime -= Time.deltaTime;
         if (_spawnTime <= 0)
         {
-            _spawnTime = spawnTimes[_currentWave];
+            _spawnTime = enemyWave[_currentWave].spawnTime;
             Spawn();
+        }
+
+        _waveTime -= Time.deltaTime;
+        if (_waveTime <= 0)
+        {
+            _waveTime = enemyWave[_currentWave].nextWaveTime;
+            if(_currentWave < enemyWave.Count - 1)
+                _currentWave++;
         }
     }
 

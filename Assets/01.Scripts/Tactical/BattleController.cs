@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BattleController : Singleton<BattleController>
 {
@@ -9,9 +10,21 @@ public class BattleController : Singleton<BattleController>
     
     public HealthBarController healthBarController;
     public DamageHudController damageHudController;
+
+    public int killCount;
     
     private void Start()
     {
         healthBarController.Connect(player.gameObject);
+    }
+
+    public void TimeStop()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void LoadScene()
+    {
+        SceneManager.LoadScene(SceneNames.InGameScene);
     }
 }

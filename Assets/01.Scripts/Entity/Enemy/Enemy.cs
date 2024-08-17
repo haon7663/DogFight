@@ -13,6 +13,7 @@ public abstract class Enemy : Entity
     [field: SerializeField] public EnemySO Data { get; private set; }
 
     [SerializeField] private Animator animator;
+    [SerializeField] private SpriteRenderer weaponSpriteRenderer;
 
     [Header("Ground/WallCheck")]
     [SerializeField]
@@ -42,6 +43,8 @@ public abstract class Enemy : Entity
         Data = data;
         MovementCompo.moveSpeed = data.moveSpeed;
         animator.runtimeAnimatorController = data.animatorController;
+        weaponSpriteRenderer.sprite = data.weapon;
+        HealthCompo.curHp = HealthCompo.maxHp = data.maxHp;
     }
     
     public bool IsTargetDetected()
