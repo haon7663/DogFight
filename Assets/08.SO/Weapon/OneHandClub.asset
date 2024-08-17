@@ -10,13 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e90dcd6279dd3f14284dcf9162e57e2a, type: 3}
-  m_Name: New Weapon SO 1
+  m_Name: OneHandClub
   m_EditorClassIdentifier: 
-  weaponName: 
-  grabSprite: {fileID: 0}
-  swingDamage: 0
-  weaponType: 0
-  attackRange: []
+  weaponName: OneHandClub
+  grabSprite: {fileID: 21300000, guid: 19a27ee6a63ab4b438133737981a7f1f, type: 3}
+  animatorController: {fileID: 22100000, guid: 99d7ca6427867354e8ffa8674c15974a, type: 2}
+  swingDamage: 19
+  durability: 6
+  attackRange:
+  - center: {x: 1, y: 0}
+    range:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1.7
+      height: 2
   throwSprite: {fileID: 0}
   throwDamage: 0
   throwingType: 0

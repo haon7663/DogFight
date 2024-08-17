@@ -13,6 +13,7 @@ public class InputReader : ScriptableObject, IPlayerActions
     public Vector2 Movement { get; private set; } = Vector2.zero;
 
     public event Action OnAttackEvent;
+    public event Action OnInteractEvent;
     public event Action OnJumpEvent;
     public event Action<Vector2> OnMovementEvent;
     public event Action OnThrowEvent;
@@ -53,6 +54,14 @@ public class InputReader : ScriptableObject, IPlayerActions
         if (context.performed)
         {
             OnThrowEvent?.Invoke();
+        }
+    }
+
+    public void OnInteraction(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            OnInteractEvent?.Invoke();
         }
     }
 }

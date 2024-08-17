@@ -10,18 +10,26 @@ public class PlayerWeapon : MonoBehaviour
     public WeaponSO CurrentWeapon { get; private set; }
     public SquareDamageCaster DamageCasterCompo { get; private set; }
 
+    [SerializeField] private ThrowingWeapon throwingWeaponPrefab;
+
+    private Player _playerBase;
+    
     private int _comboCounter = 0;
     private float _lastAttackTime = 0;
     private float _comboInitTime = 0.7f;
     private float _comboInitTimer = 0f;
     private float _attackDelay = 0.1f;
     private bool _isAttacking = false;
+    private int _weaponDurability = 0;
+    
     private readonly int _comboCounterHash = Animator.StringToHash("ComboCounter");
     private readonly int _attackBoolHash = Animator.StringToHash("Attack");
 
     private void Awake()
     {
         DamageCasterCompo = GetComponent<SquareDamageCaster>();
+        _playerBase = GetComponent<Player>();
+        SetWeapon(CurrentWeapon);
     }
 
     private void Update()
@@ -39,18 +47,32 @@ public class PlayerWeapon : MonoBehaviour
         }
     }
 
+    public void SetWeapon(WeaponSO weaponSO)
+    {
+        CurrentWeapon = weaponSO;
+        _handAnimator.runtimeAnimatorController = weaponSO.animatorController;
+        var spriteRenderer = _handAnimator.GetComponent<SpriteRenderer>();
+        spriteRenderer.enabled = true;
+        spriteRenderer.sprite = weaponSO.grabSprite;
+        _weaponDurability = weaponSO.durability;
+    }
+
     public void Attack()
     {
+        if (!CurrentWeapon)
+            return;
+        
         if (_lastAttackTime + _attackDelay > Time.time) return;
         if (_lastAttackTime + _comboInitTime < Time.time || _comboCounter > 2)
             _comboCounter = 0;
+        
         _comboInitTimer = 0;
         _isAttacking = true;
         _handAnimator.SetBool(_attackBoolHash, true);
         _handAnimator.SetInteger(_comboCounterHash, _comboCounter);
         _comboCounter++;
-        //DamageCasterCompo.DamageCast(CurrentWeapon.attackRange[_comboCounter]); // ÄÞº¸¿¡ µû¶ó ´Ù¸¥ °ø°Ý ¹üÀ§
-        if (DamageCasterCompo.DamageCast(CurrentWeapon.attackRange[0], out var targets))
+        //DamageCasterCompo.DamageCast(CurrentWeapon.attackRange[_comboCounter]); // ï¿½Þºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        if (DamageCasterCompo.DamageCast(CurrentWeapon.attackRange[0], CurrentWeapon.swingDamage, out var targets))
         {
             foreach (Collider2D tar in targets)
             {
@@ -58,7 +80,35 @@ public class PlayerWeapon : MonoBehaviour
             }
             TimeController.Instance.SetTimeFreeze(0.5f, 0.1f, 0.2f);
             CameraManager.Instance.ShakeCamera(10, 0.3f);
+            _weaponDurability--;
         }
         _lastAttackTime = Time.time;
+        
+        if (_weaponDurability <= 0)
+        {
+            RemoveWeapon();
+        }
+    }
+    
+    public void Interaction()
+    {
+        if (CurrentWeapon)
+        {
+            var weapon = Instantiate(throwingWeaponPrefab, transform.position, Quaternion.identity);
+            print(CurrentWeapon);
+            weapon.Initialize(CurrentWeapon, _playerBase.IsFacingRight ? Vector2.right : Vector2.left);
+            RemoveWeapon();
+        }
+        else
+        {
+            
+        }
+    }
+
+    private void RemoveWeapon()
+    {
+        CurrentWeapon = null;
+        _handAnimator.GetComponent<SpriteRenderer>().enabled = false;
+        //í„°ì§€ëŠ” íš¨ê³¼
     }
 }
