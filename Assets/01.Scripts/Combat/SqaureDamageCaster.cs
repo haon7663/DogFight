@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 
 [Serializable]
@@ -16,8 +17,6 @@ public class SqaureDamageCaster : DamageCaster
     private int _maxColliderCount;
     private Collider2D[] _colliders;
 
-    public SquareAttackRange[] _attackRange;
-
     private void Awake()
     {
         _colliders = new Collider2D[_maxColliderCount];
@@ -25,7 +24,7 @@ public class SqaureDamageCaster : DamageCaster
 
     public override void DamageCast(int combo)
     {
-        SquareAttackRange range = _attackRange[combo];
+        SquareAttackRange range = _owner.CurrentWeapon.attackRange[combo];
         int count = Physics2D.OverlapBoxNonAlloc((Vector2)transform.position + range.center * (_owner.IsFacingRight ? Vector2.right : Vector2.left), range.range.size, 0, _colliders, _targetLayer);
 
         if (count <= 0) return;
@@ -42,17 +41,18 @@ public class SqaureDamageCaster : DamageCaster
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
-        if (_attackRange.Length <= 0) return;
-        for (int i = 0; i < _attackRange.Length; i++)
+        SquareAttackRange[] range = _owner.CurrentWeapon.attackRange;
+        if (range.Length <= 0) return;
+        for (int i = 0; i < range.Length; i++)
         {
-            if (i == _attackRange.Length - 1)
+            if (i == range.Length - 1)
                 Gizmos.color = Color.blue;
             else
                 Gizmos.color = Color.red;
             if (_owner == null)
-                Gizmos.DrawWireCube((Vector2)transform.position + _attackRange[i].center, _attackRange[i].range.size);
+                Gizmos.DrawWireCube((Vector2)transform.position + range[i].center, range[i].range.size);
             else
-                Gizmos.DrawWireCube((Vector2)transform.position + _attackRange[i].center * (_owner.IsFacingRight ? Vector2.right : Vector2.left), _attackRange[i].range.size);
+                Gizmos.DrawWireCube((Vector2)transform.position + range[i].center * (_owner.IsFacingRight ? Vector2.right : Vector2.left), range[i].range.size);
         }
     }
 #endif
