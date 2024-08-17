@@ -16,7 +16,14 @@ MonoBehaviour:
   grabSprite: {fileID: 0}
   swingDamage: 0
   weaponType: 0
-  attackRange: []
+  attackRange:
+  - center: {x: 0, y: 0}
+    range:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 5
+      height: 5
   throwSprite: {fileID: -2042050451, guid: de1aae7cb247daa4099b780034ae2cdd, type: 3}
   throwDamage: 5
   throwingType: 1

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
 
@@ -26,11 +27,11 @@ public class SquareDamageCaster : MonoBehaviour
         _colliders = new Collider2D[_maxColliderCount];
     }
 
-    public void DamageCast(int combo, SquareAttackRange range)
+    public bool DamageCast(SquareAttackRange range, out List<Collider2D> targets)
     {
         int count = Physics2D.OverlapBoxNonAlloc((Vector2)transform.position + range.center * (_owner.IsFacingRight ? Vector2.right : Vector2.left), range.range.size, 0, _colliders, _targetLayer);
-
-        if (count <= 0) return;
+        targets = null;
+        if (count <= 0) return false;
         for (int i = 0; i < count; i++)
         {
             if (_colliders[i].TryGetComponent(out IDamageable health))
@@ -39,6 +40,8 @@ public class SquareDamageCaster : MonoBehaviour
                 health.GetDamage(5);
             }
         }
+        targets = _colliders.ToList().Where(x => x != null).ToList();
+        return true;
     }
 
 #if UNITY_EDITOR

@@ -29,7 +29,7 @@ public abstract class Entity : MonoBehaviour
         float yRot = value ? 180f : 0f;
         transform.rotation = Quaternion.Euler(0f, yRot, 0f);
         OnFlipEvent?.Invoke(value);
-        IsFacingRight = value;
+        IsFacingRight = !value;
     }
 
     public abstract void AnimationTrigger(AnimationTriggerEnum triggerBit);

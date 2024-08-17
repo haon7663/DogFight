@@ -18,6 +18,8 @@ public class CameraManager : MonoSingleton<CameraManager>
     public void ShakeCamera(float power, float duration)
     {
         _perlin.m_AmplitudeGain = power;
+        if (_shakeTween != null && _shakeTween.IsActive())
+            _shakeTween.Kill();
         _shakeTween = DOTween.To(() => _perlin.m_AmplitudeGain, v => _perlin.m_AmplitudeGain = v, 0, duration);
     }
 
