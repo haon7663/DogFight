@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,13 +8,27 @@ public class ThrowingWeapon : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rigid;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    public void Initialize(WeaponSO weaponSO)
+    [SerializeField] private float speed;
+
+    private WeaponSO _weaponSO;
+    public void Initialize(WeaponSO weaponSO, Vector2 dir)
     {
+        _weaponSO = weaponSO;
         spriteRenderer.sprite = weaponSO.throwSprite;
+
+        Fire(dir);
     }
     
-    public void Fire(Vector2 dir)
+    private void Fire(Vector2 dir)
     {
-        rigid.velocity = dir;
+        spriteRenderer.flipX = dir.x < 0;
+        rigid.velocity = dir * speed;
+    }
+
+    private void Update()
+    {
+        if (_weaponSO.throwingType == ThrowingType.Linear)
+            return;
+        spriteRenderer.transform.Rotate(new Vector3(0, 0, 360) * Time.deltaTime);
     }
 }
