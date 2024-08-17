@@ -16,4 +16,5 @@ public class WeaponSO : ScriptableObject
     public int damage;
     public WeaponType weaponType;
     public ThrowingWeapon throwingWeaponPrefab;
+    public SquareAttackRange[] attackRange;
 }

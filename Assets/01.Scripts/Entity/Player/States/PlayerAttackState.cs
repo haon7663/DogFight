@@ -11,6 +11,7 @@ public class PlayerAttackState : State<Player>
     public override void Enter()
     {
         base.Enter();
+        _owner.MovementCompo.StopImmediately();
         switch (_owner.CurrentWeapon.weaponType)
         {
             case WeaponType.OneHand:

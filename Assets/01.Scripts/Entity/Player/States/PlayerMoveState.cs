@@ -18,7 +18,7 @@ public class PlayerMoveState : PlayerGroundState
     private void HandleOnMovementEvent(Vector2 movement)
     {
         _owner.MovementCompo.SetMove(movement);
-        if(movement.sqrMagnitude < 0.05f)
+        if(movement.magnitude < 0.05f)
         {
             _stateMachine.ChangeState(PlayerStateEnum.Idle);
         }

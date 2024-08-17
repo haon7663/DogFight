@@ -18,8 +18,10 @@ public class Player : Entity
 {
     public StateMachine<Player> StateMachine { get; private set; }
     public PlayerMovement MovementCompo { get; private set; }
-    public PlayerInput InputCompo { get; private set; }
+    [field:SerializeField]
+    public InputReader InputCompo { get; private set; }
     public DamageCaster DamageCasterCompo { get; private set; }
+    [field: SerializeField]
     public bool IsGround => IsGroundDetected();
 
     [Header("Ground Check")]
@@ -37,7 +39,6 @@ public class Player : Entity
         base.Awake();
         MovementCompo = GetComponent<PlayerMovement>();
         MovementCompo.Initialize(this);
-        InputCompo = GetComponent<PlayerInput>();
         StateMachine = new StateMachine<Player>(this);
 
         StateMachine.Initialize(PlayerStateEnum.Idle);

@@ -603,7 +603,6 @@ GameObject:
   - component: {fileID: 1725581007}
   - component: {fileID: 1725581008}
   - component: {fileID: 1725581010}
-  - component: {fileID: 1725581009}
   - component: {fileID: 1725581012}
   - component: {fileID: 1725581013}
   m_Layer: 0
@@ -642,25 +641,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3a46a44a8a1e14d8b6293b1511fdd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <InputCompo>k__BackingField: {fileID: 11400000, guid: dfb7151de83909c45b95a47fa3547216, type: 2}
   _groundChecker: {fileID: 552295908}
   _groundCheckBoxWidth: 1.05
   _groundCheckDistance: 1.15
   _whatIsGround:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &1725581009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1725581006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962cf828473ada84b9c6fafeab0c1732, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _joystick: {fileID: 0}
 --- !u!114 &1725581010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,8 +660,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2fc318508b73947837cc2a1a65c3d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 8
-  _jumpPower: 5
+  _moveSpeed: 12
+  _jumpPower: 15
 --- !u!61 &1725581012
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -735,7 +722,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
