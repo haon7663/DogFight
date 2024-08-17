@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CommonEnemyMoveState : State<CommonEnemy>
 {
+    private Coroutine _coroutine;
+    
     public CommonEnemyMoveState(CommonEnemy owner, StateMachine<CommonEnemy> stateMachine, string animBoolName) : base(owner, stateMachine, animBoolName)
     {
     }
@@ -17,6 +19,17 @@ public class CommonEnemyMoveState : State<CommonEnemy>
     private void HandleOnMovementEvent(Vector2 movement)
     {
         _owner.MovementCompo.SetMove(movement);
+        if (_owner.IsTargetDetected() && _coroutine == null)
+        {
+            _coroutine = _owner.StartCoroutine(ChangeAttackState());
+        }
+    }
+
+    private IEnumerator ChangeAttackState()
+    {
+        yield return null;
+        _stateMachine.ChangeState(CommonEnemyStateEnum.Attack);
+        _coroutine = null;
     }
 
     public override void Exit()

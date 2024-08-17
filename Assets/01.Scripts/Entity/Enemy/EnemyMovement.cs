@@ -19,7 +19,7 @@ public class EnemyMovement : MonoBehaviour
     public void SetMove(Vector2 dir)
     {
         float yVel = RigidbodyCompo.velocity.y;
-        bool flip = dir != Vector2.left;
+        bool flip = dir == Vector2.left;
         _enemy.Flip(flip);
         RigidbodyCompo.velocity = new Vector3(0, yVel, 0) +  (Vector3)(dir * _moveSpeed);
     }

@@ -5,9 +5,9 @@ using UnityEngine;
 
 public enum AnimationTriggerEnum
 {
-    EndTrigger,
-    AttackTrigger,
-    EffectTrigger
+    EndTrigger = 1,
+    AttackTrigger = 2,
+    EffectTrigger = 4
 }
 public abstract class Entity : MonoBehaviour
 {
