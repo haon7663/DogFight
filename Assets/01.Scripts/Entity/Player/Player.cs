@@ -8,7 +8,6 @@ public enum PlayerStateEnum
     Idle,
     Move,
     Hit,
-    Attack,
     Jump,
     Fall,
     Dead,
@@ -44,7 +43,7 @@ public class Player : Entity
 
         StateMachine.Initialize(PlayerStateEnum.Idle);
 
-        InputCompo.OnAttackEvent += () => StateMachine.ChangeState(PlayerStateEnum.Attack);
+        //InputCompo.OnAttackEvent += () => StateMachine.ChangeState(PlayerStateEnum.Attack);
     }
 
     private void Update()
