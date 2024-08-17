@@ -16,12 +16,16 @@ public abstract class Entity : MonoBehaviour
     public bool IsFacingRight { get; private set; }
     public event Action<bool> OnFlipEvent;
     public WeaponSO CurrentWeapon { get; protected set; }
+    [field: SerializeField]
+    public Material WhiteMaterial { get; protected set; }
+    public Material OriginMaterial { get; protected set; }
 
     protected virtual void Awake()
     {
         Transform visualTrm = transform.Find("Visual");
         AnimatorCompo = visualTrm.GetComponent<Animator>();
         RendererCompo = visualTrm.GetComponent<SpriteRenderer>();
+        OriginMaterial = RendererCompo.material;
     }
 
     public void Flip(bool value)

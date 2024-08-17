@@ -1464,6 +1464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _owner: {fileID: 1725581008}
+  _weapon: {fileID: 1725581014}
   _maxColliderCount: 10
   _targetLayer:
     serializedVersion: 2
@@ -1660,6 +1661,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47a56580efa3734cafc2807a3688637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1811406340}
+        m_TargetAssemblyTypeName: CommonEnemy, Assembly-CSharp
+        m_MethodName: HandleOnHitEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   maxHp: 100
   curHp: 100
 --- !u!1 &1937654768

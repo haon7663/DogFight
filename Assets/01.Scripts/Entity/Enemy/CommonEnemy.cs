@@ -31,4 +31,9 @@ public class CommonEnemy : Enemy
     {
         StateMachine.CurrentState.AnimationTrigger(triggerBit);
     }
+
+    public void HandleOnHitEvent()
+    {
+        StateMachine.ChangeState(CommonEnemyStateEnum.Hit);
+    }
 }
