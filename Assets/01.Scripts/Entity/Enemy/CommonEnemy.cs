@@ -19,7 +19,7 @@ public class CommonEnemy : Enemy
         base.Awake();
         
         StateMachine = new StateMachine<CommonEnemy>(this);
-        StateMachine.Initialize(CommonEnemyStateEnum.Idle);
+        StateMachine.Initialize(CommonEnemyStateEnum.Move);
     }
     
     private void Update()
