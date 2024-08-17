@@ -17,6 +17,7 @@ public class Player : Entity
 {
     public StateMachine<Player> StateMachine { get; private set; }
     public PlayerMovement MovementCompo { get; private set; }
+    public PlayerWeapon WeaponCompo { get; private set; }
     [field:SerializeField]
     public InputReader InputCompo { get; private set; }
     public DamageCaster DamageCasterCompo { get; private set; }
@@ -39,11 +40,12 @@ public class Player : Entity
         base.Awake();
         MovementCompo = GetComponent<PlayerMovement>();
         MovementCompo.Initialize(this);
+        WeaponCompo = GetComponent<PlayerWeapon>();
         StateMachine = new StateMachine<Player>(this);
 
         StateMachine.Initialize(PlayerStateEnum.Idle);
 
-        //InputCompo.OnAttackEvent += () => StateMachine.ChangeState(PlayerStateEnum.Attack);
+        InputCompo.OnAttackEvent += () => WeaponCompo.Attack();
     }
 
     private void Update()
