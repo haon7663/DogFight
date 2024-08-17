@@ -19,6 +19,7 @@ public class Health : MonoBehaviour, IDamageable
     public void GetDamage(int value)
     {
         if (_isInvincible) return;
+        AudioManager.Inst.PlaySFX("Hit");
         curHp -= value;
         if (curHp <= 0)
             OnDeadEvent?.Invoke();
