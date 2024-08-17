@@ -10,7 +10,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Slider hpSlider;
     private GameObject _obj;
     
-    private readonly Vector3 _offset = new Vector3(0, 0.6f);
+    private readonly Vector3 _offset = new Vector3(0, 1.55f);
 
     public void Initialize(GameObject obj)
     {
@@ -31,10 +31,15 @@ public class HealthBar : MonoBehaviour
         hpSlider.value = fill;
         
         hpSlider.gameObject.SetActive(true);
+        
+        if (health.curHp <= 0)
+            Destroy(gameObject);
     }
 
     private void LateUpdate()
     {
+        if (!_obj)
+            return;
         transform.position = _obj.transform.position + _offset;
     }
 }

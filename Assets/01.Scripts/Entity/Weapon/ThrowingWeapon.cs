@@ -29,6 +29,21 @@ public class ThrowingWeapon : MonoBehaviour
     {
         if (_weaponSO.throwingType == ThrowingType.Linear)
             return;
-        spriteRenderer.transform.Rotate(new Vector3(0, 0, 360) * Time.deltaTime);
+        spriteRenderer.transform.Rotate(new Vector3(0, 0, 1080) * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.TryGetComponent<Enemy>(out var enemy))
+        {
+            if (enemy.TryGetComponent<IDamageable>(out var damageable))
+            {
+                damageable.GetDamage(_weaponSO.swingDamage * 2);
+                BattleController.Inst.damageHudController.Generate(other.gameObject, _weaponSO.swingDamage * 2);
+                TimeController.Instance.SetTimeFreeze(0.5f, 0.1f, 0.2f);
+                CameraManager.Instance.ShakeCamera(10, 0.3f);
+                Destroy(gameObject);
+            }
+        }
     }
 }

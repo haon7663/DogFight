@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class BattleController : Singleton<BattleController>
 {
+    public Player player;
+    
     public HealthBarController healthBarController;
     public DamageHudController damageHudController;
     

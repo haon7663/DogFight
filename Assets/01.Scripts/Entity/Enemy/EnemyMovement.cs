@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemyMovement : MonoBehaviour
 {
     private Enemy _enemy;
     public Rigidbody2D RigidbodyCompo { get; private set; }
-    [Header("Movement Value")]
-    [SerializeField]
-    private float _moveSpeed = 8f;
+
+    public float moveSpeed = 8f;
 
     public void Initialize(Enemy enemy)
     {
@@ -21,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
         float yVel = RigidbodyCompo.velocity.y;
         bool flip = dir == Vector2.left;
         _enemy.Flip(flip);
-        RigidbodyCompo.velocity = new Vector3(0, yVel, 0) +  (Vector3)(dir * _moveSpeed);
+        RigidbodyCompo.velocity = new Vector3(0, yVel, 0) +  (Vector3)(dir * moveSpeed);
     }
 
     public void StopImmediately(bool withYAxis = false)

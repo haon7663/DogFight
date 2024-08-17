@@ -23,6 +23,5 @@ public class WeaponSO : ScriptableObject
     
     [Header("투척")]
     public Sprite throwSprite;
-    public int throwDamage;
     public ThrowingType throwingType;
 }
