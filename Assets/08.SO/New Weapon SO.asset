@@ -19,4 +19,4 @@ MonoBehaviour:
   attackRange: []
   throwSprite: {fileID: -2042050451, guid: de1aae7cb247daa4099b780034ae2cdd, type: 3}
   throwDamage: 5
-  throwingType: 0
+  throwingType: 1

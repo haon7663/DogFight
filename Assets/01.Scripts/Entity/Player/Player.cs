@@ -43,6 +43,8 @@ public class Player : Entity
         StateMachine = new StateMachine<Player>(this);
 
         StateMachine.Initialize(PlayerStateEnum.Idle);
+
+        InputCompo.OnAttackEvent += () => StateMachine.ChangeState(PlayerStateEnum.Attack);
     }
 
     private void Update()
