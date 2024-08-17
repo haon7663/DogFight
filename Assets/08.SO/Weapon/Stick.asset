@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e90dcd6279dd3f14284dcf9162e57e2a, type: 3}
+  m_Name: Stick
+  m_EditorClassIdentifier: 
+  weaponName: Stick
+  grabSprite: {fileID: 21300000, guid: 769bf1b3907686748967eee098f58154, type: 3}
+  animatorController: {fileID: 22100000, guid: 68d45a80a82e7aa4ab13001357c53232, type: 2}
+  swingDamage: 11
+  durability: 4
+  attackRange:
+  - center: {x: 1.41, y: 0}
+    range:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 3
+      height: 2.2
+  throwSprite: {fileID: -2042050451, guid: de1aae7cb247daa4099b780034ae2cdd, type: 3}
+  throwDamage: 11
+  throwingType: 0

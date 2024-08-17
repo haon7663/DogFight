@@ -10,11 +10,6 @@ public class DamageHud : MonoBehaviour
 {
     [SerializeField] private TMP_Text label;
 
-    private void Start()
-    {
-        Initialize(5);
-    }
-
     public void Initialize(int value)
     {
         label.text = value.ToString();

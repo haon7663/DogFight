@@ -34,7 +34,7 @@ public class SquareDamageCaster : MonoBehaviour
         return Physics2D.OverlapBox((Vector2)transform.position + range.center * (_owner.IsFacingRight ? Vector2.right : Vector2.left), range.range.size, 0, _targetLayer);;
     }
 
-    public bool DamageCast(SquareAttackRange range, out List<Collider2D> targets)
+    public bool DamageCast(SquareAttackRange range, int damage, out List<Collider2D> targets)
     {
         int count = Physics2D.OverlapBoxNonAlloc((Vector2)transform.position + range.center * (_owner.IsFacingRight ? Vector2.right : Vector2.left), range.range.size, 0, _colliders, _targetLayer);
         targets = null;
@@ -44,7 +44,7 @@ public class SquareDamageCaster : MonoBehaviour
             if (_colliders[i].TryGetComponent(out IDamageable health))
             {
                 //health.GetDamage(_owner.Stat.damage);
-                health.GetDamage(5);
+                health.GetDamage(damage);
             }
         }
         targets = _colliders.ToList().Where(x => x != null).ToList();
@@ -54,6 +54,9 @@ public class SquareDamageCaster : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
+        if (!_weapon.CurrentWeapon)
+            return;
+        
         SquareAttackRange[] range = _weapon.CurrentWeapon.attackRange;
         if (range.Length <= 0) return;
         for (int i = 0; i < range.Length; i++)

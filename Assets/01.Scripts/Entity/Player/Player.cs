@@ -46,6 +46,7 @@ public class Player : Entity
         StateMachine.Initialize(PlayerStateEnum.Idle);
 
         InputCompo.OnAttackEvent += () => WeaponCompo.Attack();
+        InputCompo.OnInteractEvent += () => WeaponCompo.Interaction();
     }
 
     private void Update()

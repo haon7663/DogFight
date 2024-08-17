@@ -3,13 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public enum WeaponType
-{
-    OneHand,
-    TwoHands,
-    ShortSword
-}
-
 public enum ThrowingType
 {
     Linear,
@@ -23,8 +16,9 @@ public class WeaponSO : ScriptableObject
     
     [Header("기본")]
     public Sprite grabSprite;
+    public RuntimeAnimatorController animatorController;
     public int swingDamage;
-    public WeaponType weaponType;
+    public int durability;
     public SquareAttackRange[] attackRange;
     
     [Header("투척")]

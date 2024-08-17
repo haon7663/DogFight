@@ -22,7 +22,7 @@ public class CommonEnemyAttackState : State<CommonEnemy>
     {
         if (IsTriggerCalled(AnimationTriggerEnum.AttackTrigger))
         {
-            if(_owner.DamageCasterCompo.DamageCast(_owner.Data.attackRange[0], out var targets))
+            if(_owner.DamageCasterCompo.DamageCast(_owner.Data.attackRange[0], _owner.Data.damage, out var targets))
             {
                 if (targets[0].TryGetComponent<IDamageable>(out var damageable))
                 {

@@ -811,6 +811,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47a56580efa3734cafc2807a3688637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   maxHp: 0
   curHp: 0
 --- !u!1 &858734238
@@ -961,7 +964,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarController: {fileID: 529173428}
   damageHudController: {fileID: 1677167902}
-  player: {fileID: 655787187}
 --- !u!1 &1677167900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,7 +1011,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageHudPrefab: {fileID: 3244937691566393653, guid: 148d95cc17f13bf4b8bebec1578d9d5e, type: 3}
   canvas: {fileID: 442275755}
-  offset: {x: 0, y: 0.5, z: 0}
+  offset: {x: 0, y: 1, z: 0}
+  hudRadius: 0.5
 --- !u!1 &1865634975
 GameObject:
   m_ObjectHideFlags: 0

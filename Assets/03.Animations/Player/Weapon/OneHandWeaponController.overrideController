@@ -8,4 +8,12 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: OneHandWeaponController
   m_Controller: {fileID: 9100000, guid: bd43cf416a0dc244da4c38adecf89a87, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 1fb1dabf35cd33445a42fca02933491e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fd92dc602122b5f4dac059b8627860d6, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 13704d8d91a400a449204d7eebc7b1e3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c56ffa6d7f26f22499304d39ffc28fd2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f33b31e898af97a4fb4ae3e95f35f93e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d72eca07eb073224aa48e2a6ca151e0b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 0b43f9d0b7f97d242b3d9844ab9ffc4d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 582966f228286c94690b3b5a25ec2aa2, type: 2}
