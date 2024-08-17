@@ -48,6 +48,6 @@ public class TitleScene : MonoBehaviour
 
     private void Update()
     {
-        transform.position += Vector3.left * Time.deltaTime;
+        transform.position += Vector3.left * Time.deltaTime * 0.2f;
     }
 }
