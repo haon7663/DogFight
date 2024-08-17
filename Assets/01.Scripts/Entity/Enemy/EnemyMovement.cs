@@ -2,19 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
-    private Player _player;
+    private Enemy _enemy;
     public Rigidbody2D RigidbodyCompo { get; private set; }
     [Header("Movement Value")]
     [SerializeField]
     private float _moveSpeed = 8f;
-    [SerializeField]
-    private float _jumpPower = 5f;
 
-    public void Initialize(Player player)
+    public void Initialize(Enemy enemy)
     {
-        _player = player;
+        _enemy = enemy;
         RigidbodyCompo = GetComponent<Rigidbody2D>();
     }
 
@@ -22,13 +20,8 @@ public class PlayerMovement : MonoBehaviour
     {
         float yVel = RigidbodyCompo.velocity.y;
         bool flip = dir != Vector2.left;
-        _player.Flip(flip);
+        _enemy.Flip(flip);
         RigidbodyCompo.velocity = new Vector3(0, yVel, 0) +  (Vector3)(dir * _moveSpeed);
-    }
-
-    public void Jump()
-    {
-        RigidbodyCompo.AddForce(Vector3.up * _jumpPower, ForceMode2D.Impulse);
     }
 
     public void StopImmediately(bool withYAxis = false)

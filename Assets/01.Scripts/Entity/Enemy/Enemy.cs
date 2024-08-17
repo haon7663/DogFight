@@ -5,25 +5,21 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public abstract class Enemy : MonoBehaviour
+public abstract class Enemy : Entity
 {
-    [field: SerializeField] public EnemySO data { get; private set; }
-    [SerializeField] private LayerMask targetLayer;
+    public EnemyMovement MovementCompo { get; private set; }
+    public EnemyAgent AgentCompo { get; private set; }
+    public DamageCaster DamageCasterCompo { get; private set; }
+    [field: SerializeField] public EnemySO Data { get; private set; }
     
-    public Rigidbody2D rigid;
-    public Animator anim;
-    public Transform target;
-
-    protected virtual void Awake()
+    protected override void Awake()
     {
-        rigid = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        base.Awake();
+        MovementCompo = GetComponent<EnemyMovement>();
+        MovementCompo.Initialize(this);
+        AgentCompo = GetComponent<EnemyAgent>();
     }
 
-    public void Initialize(EnemySO data)
-    {
-        this.data = data;
-    }
     
     /*private void FixedUpdate()
     {
@@ -40,22 +36,27 @@ public abstract class Enemy : MonoBehaviour
         
         rigid.velocity = new Vector2(x, rigid.velocity.y);
     }*/
+    
+    public override void AnimationTrigger(AnimationTriggerEnum triggerBit)
+    {
+        
+    }
 
     [CanBeNull]
     public virtual Collider2D IsTargetDetected()
     {
-        var hit = Physics2D.OverlapBox((Vector2)transform.position + data.rect.position,
-            data.rect.size, 0, targetLayer);
+        var hit = Physics2D.OverlapBox((Vector2)transform.position + Data.rect.position,
+            Data.rect.size, 0);
 
         return hit;
     }
 
     private void OnDrawGizmos()
     {
-        if (!data)
+        if (!Data)
             return;
         
         Gizmos.color = Color.green;
-        Gizmos.DrawWireCube((Vector2)transform.position + data.rect.position, data.rect.size);
+        Gizmos.DrawWireCube((Vector2)transform.position + Data.rect.position, Data.rect.size);
     }
 }
