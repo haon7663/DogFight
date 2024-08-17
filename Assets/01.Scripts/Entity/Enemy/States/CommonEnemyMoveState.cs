@@ -19,6 +19,10 @@ public class CommonEnemyMoveState : State<CommonEnemy>
     private void HandleOnMovementEvent(Vector2 movement)
     {
         _owner.MovementCompo.SetMove(movement);
+        if(_owner.IsGroundDetected() && _owner.IsWallDetected() && _owner.MovementCompo.RigidbodyCompo.velocity.y < 0.5f)
+        {
+            _owner.MovementCompo.Jump();
+        }
         if (_owner.IsTargetDetected() && _coroutine == null)
         {
             _coroutine = _owner.StartCoroutine(ChangeAttackState());

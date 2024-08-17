@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class EnemyMovement : MonoBehaviour
     public Rigidbody2D RigidbodyCompo { get; private set; }
 
     public float moveSpeed = 8f;
+    [SerializeField]
+    private float _jumpPower = 2000f;
 
     public void Initialize(Enemy enemy)
     {
@@ -32,5 +35,10 @@ public class EnemyMovement : MonoBehaviour
         }
         float yVel = RigidbodyCompo.velocity.y;
         RigidbodyCompo.velocity = Vector3.zero + new Vector3(0, yVel, 0);
+    }
+
+    public void Jump()
+    {
+        RigidbodyCompo.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
     }
 }

@@ -18125,11 +18125,10 @@ MonoBehaviour:
   - 5
   - 4
   offsetSpawnPoints:
-  - {x: -15, y: 0, z: 0}
-  - {x: 15, y: 0, z: 0}
-  - {x: 3, y: 15, z: 0}
+  - {x: -20, y: 15, z: 0}
+  - {x: 20, y: 15, z: 0}
+  - {x: 2, y: 15, z: 0}
   - {x: -2, y: 15, z: 0}
-  - {x: 0, y: 20, z: 0}
 --- !u!1 &767971012
 GameObject:
   m_ObjectHideFlags: 0
