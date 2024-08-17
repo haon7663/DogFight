@@ -16,6 +16,7 @@ public class WeaponSO : ScriptableObject
     
     [Header("기본")]
     public Sprite grabSprite;
+    public bool attackAble;
     public RuntimeAnimatorController animatorController;
     public int swingDamage;
     public int durability;
@@ -24,4 +25,7 @@ public class WeaponSO : ScriptableObject
     [Header("투척")]
     public Sprite throwSprite;
     public ThrowingType throwingType;
+
+    [Header("이펙트")]
+    public GameObject hitEffectPrefab;
 }

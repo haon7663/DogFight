@@ -61,6 +61,12 @@ public class PlayerWeapon : MonoBehaviour
     {
         if (!CurrentWeapon)
             return;
+
+        if (!CurrentWeapon.attackAble)
+        {
+            Interaction();
+            return;
+        }
         
         if (_lastAttackTime + _attackDelay > Time.time) return;
         if (_lastAttackTime + _comboInitTime < Time.time || _comboCounter > 2)
@@ -77,6 +83,7 @@ public class PlayerWeapon : MonoBehaviour
             foreach (Collider2D tar in targets)
             {
                 BattleController.Inst.damageHudController.Generate(tar.gameObject, CurrentWeapon.swingDamage);
+                Instantiate(CurrentWeapon.hitEffectPrefab, tar.transform.position,  Quaternion.Euler(0, 0, Random.Range(0, 360f)));
             }
             TimeController.Instance.SetTimeFreeze(0.5f, 0.1f, 0.2f);
             CameraManager.Instance.ShakeCamera(10, 0.3f);

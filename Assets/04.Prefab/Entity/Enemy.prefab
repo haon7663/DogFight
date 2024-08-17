@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1519602493006136005}
   - component: {fileID: 8644339265473777670}
   - component: {fileID: 289311311536146101}
+  - component: {fileID: 3505172659243864961}
   - component: {fileID: 2327391792956845102}
   - component: {fileID: 3097234336569152828}
   - component: {fileID: 7288072213733704902}
@@ -79,6 +80,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
+--- !u!114 &3505172659243864961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2302070404262228750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4b6e643939feb46828071ee2fc1b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedWeaponPrefab: {fileID: 7212243054068618390, guid: a3aa204100947c742a9e68c58fcd57ed, type: 3}
 --- !u!114 &2327391792956845102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +126,18 @@ MonoBehaviour:
       - m_Target: {fileID: 8644339265473777670}
         m_TargetAssemblyTypeName: CommonEnemy, Assembly-CSharp
         m_MethodName: HandleOnDeadEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3505172659243864961}
+        m_TargetAssemblyTypeName: DropItems, Assembly-CSharp
+        m_MethodName: SummonItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

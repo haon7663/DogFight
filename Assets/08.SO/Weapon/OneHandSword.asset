@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: OneHandSword
   grabSprite: {fileID: 21300000, guid: 4a3206ed171e32b4c866d46326a9e181, type: 3}
+  attackAble: 1
   animatorController: {fileID: 22100000, guid: 99d7ca6427867354e8ffa8674c15974a, type: 2}
   swingDamage: 34
   durability: 11
@@ -27,3 +28,4 @@ MonoBehaviour:
       height: 2
   throwSprite: {fileID: -444088115, guid: de1aae7cb247daa4099b780034ae2cdd, type: 3}
   throwingType: 0
+  hitEffectPrefab: {fileID: 462796533826282288, guid: 41e0bf62f4596b14f9eb5a6013bea7af, type: 3}

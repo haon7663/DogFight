@@ -12,6 +12,6 @@ public class BattleController : Singleton<BattleController>
     
     private void Start()
     {
-        //healthBarController.Connect(player);
+        healthBarController.Connect(player.gameObject);
     }
 }

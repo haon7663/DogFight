@@ -10,4 +10,6 @@ public class EnemySO : ScriptableObject
     public float moveSpeed;
     public int damage;
     public SquareAttackRange[] attackRange;
+
+    public WeaponSO[] dropItems;
 }

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: TwoHandSword
   grabSprite: {fileID: 21300000, guid: 512285277cca4a141997eb49a909e5a9, type: 3}
+  attackAble: 1
   animatorController: {fileID: 22100000, guid: 68d45a80a82e7aa4ab13001357c53232, type: 2}
   swingDamage: 51
   durability: 6
@@ -26,5 +27,5 @@ MonoBehaviour:
       width: 3.4
       height: 2.2
   throwSprite: {fileID: -2042050451, guid: de1aae7cb247daa4099b780034ae2cdd, type: 3}
-  throwDamage: 51
   throwingType: 0
+  hitEffectPrefab: {fileID: 462796533826282288, guid: 41e0bf62f4596b14f9eb5a6013bea7af, type: 3}

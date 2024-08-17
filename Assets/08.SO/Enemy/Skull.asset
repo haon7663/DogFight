@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f724aac93646d46b25494abf79624d, type: 3}
+  m_Name: Skull
+  m_EditorClassIdentifier: 
+  animatorController: {fileID: 22100000, guid: dfef5ed093e2a7741b89fcecab312c16, type: 2}
+  maxHp: 60
+  moveSpeed: 5
+  damage: 21
+  attackRange:
+  - center: {x: 0, y: 0}
+    range:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1
+      height: 2
+  dropItems:
+  - {fileID: 11400000, guid: 19c96976a9f6b29449c6b86cee1c02ee, type: 2}
+  - {fileID: 11400000, guid: 3489b026ece4c5943baab1f01bde5ecc, type: 2}
+  - {fileID: 11400000, guid: 2e2da413fbfcd6947ba157a181a83983, type: 2}

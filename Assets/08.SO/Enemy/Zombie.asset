@@ -23,4 +23,6 @@ MonoBehaviour:
       x: 0
       y: 0
       width: 1
-      height: 1
+      height: 2
+  dropItems:
+  - {fileID: 11400000, guid: cc39f426773566a4cbd7c11673c2da91, type: 2}
