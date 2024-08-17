@@ -19,7 +19,7 @@ public class Player : Entity
     public StateMachine<Player> StateMachine { get; private set; }
     public PlayerMovement MovementCompo { get; private set; }
     public PlayerInput InputCompo { get; private set; }
-    public WeaponSO CurrentWeapon { get; private set; }
+    public DamageCaster DamageCasterCompo { get; private set; }
     public bool IsGround => IsGroundDetected();
 
     [Header("Ground Check")]
@@ -32,8 +32,9 @@ public class Player : Entity
     [SerializeField]
     private LayerMask _whatIsGround;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         MovementCompo = GetComponent<PlayerMovement>();
         InputCompo = GetComponent<PlayerInput>();
         StateMachine = new StateMachine<Player>(this);

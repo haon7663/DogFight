@@ -12,6 +12,8 @@ public enum WeaponType
 public class WeaponSO : ScriptableObject
 {
     public string weaponName;
-    public WeaponType weaponType;
+    public Sprite sprite;
     public int damage;
+    public WeaponType weaponType;
+    public ThrowingWeapon throwingWeaponPrefab;
 }
