@@ -101,7 +101,7 @@ public class PlayerWeapon : MonoBehaviour
         }
         else
         {
-            _playerBase.NearestInteractableObj.Interact(_playerBase);
+            _playerBase.NearestInteractableObj?.Interact(_playerBase);
         }
     }
 

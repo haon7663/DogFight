@@ -20,7 +20,7 @@ public class ParallaxBackground : MonoBehaviour
         _spriteSize = GetComponentInChildren<SpriteRenderer>().bounds.size;
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         MoveToCameraPosition();
     }

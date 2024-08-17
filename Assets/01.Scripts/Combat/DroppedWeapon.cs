@@ -21,4 +21,6 @@ public class DroppedWeapon : MonoBehaviour, IInteractable
         interacted.WeaponCompo.SetWeapon(_weaponSO);
         Destroy(gameObject);
     }
+
+    public GameObject GameObject { get; set; }
 }
