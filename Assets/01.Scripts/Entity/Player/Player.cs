@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -90,7 +91,7 @@ public class Player : Entity
         }
 
         NearestInteractableObj = nearest.GetComponent<IInteractable>();
-        Debug.Log(NearestInteractableObj);
+        NearestInteractableObj.GameObject = nearest.gameObject;
     }
 
     public override void AnimationTrigger(AnimationTriggerEnum triggerBit)
