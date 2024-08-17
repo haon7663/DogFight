@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(_movement);
         RigidbodyCompo.velocity = new Vector2(0, RigidbodyCompo.velocity.y) + _movement;
     }
 

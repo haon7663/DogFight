@@ -7,5 +7,6 @@ public class EnemySO : ScriptableObject
 {
     public float maxHp;
     public float moveSpeed;
-    public Rect rect;
+    public int damage;
+    public SquareAttackRange[] attackRange;
 }

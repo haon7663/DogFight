@@ -27,6 +27,11 @@ public class SquareDamageCaster : MonoBehaviour
         _colliders = new Collider2D[_maxColliderCount];
     }
 
+    public bool InRange(SquareAttackRange range)
+    {
+        return Physics2D.OverlapBox((Vector2)transform.position + range.center * (_owner.IsFacingRight ? Vector2.right : Vector2.left), range.range.size, 0, _targetLayer);;
+    }
+
     public bool DamageCast(SquareAttackRange range, out List<Collider2D> targets)
     {
         int count = Physics2D.OverlapBoxNonAlloc((Vector2)transform.position + range.center * (_owner.IsFacingRight ? Vector2.right : Vector2.left), range.range.size, 0, _colliders, _targetLayer);
