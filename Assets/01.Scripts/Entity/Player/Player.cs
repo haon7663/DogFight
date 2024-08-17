@@ -84,7 +84,7 @@ public class Player : Entity
                 nearest = _colliders[i];
                 continue;
             }
-            if(Vector2.Distance(transform.position, nearest.transform.position) > Vector2.Distance(transform.position, _colliders[i].transform.position)) 
+            if (Vector2.Distance(transform.position, nearest.transform.position) > Vector2.Distance(transform.position, _colliders[i].transform.position))
             {
                 nearest = _colliders[i];
             }
@@ -102,6 +102,30 @@ public class Player : Entity
     private bool IsGroundDetected()
     {
         return Physics2D.BoxCast(_groundChecker.position, new Vector2(_groundCheckBoxWidth, 0.05f), 0, Vector2.down, _groundCheckDistance, _whatIsGround);
+    }
+
+    public void HandleOnHitEvent()
+    {
+        StateMachine.ChangeState(PlayerStateEnum.Hit);
+    }
+
+    public void SetInvincible(float time)
+    {
+        RendererCompo.color = Color.white * 0.5f;
+        HealthCompo.ModifyInvincible(true);
+        StartCoroutine(InvincibleCoroutine(time));
+    }
+
+    private IEnumerator InvincibleCoroutine(float time)
+    {
+        float timer = 0;
+        while (timer < time)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        RendererCompo.color = Color.white;
+        HealthCompo.ModifyInvincible(false);
     }
 
 #if UNITY_EDITOR

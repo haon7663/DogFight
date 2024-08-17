@@ -11,16 +11,14 @@ public class Health : MonoBehaviour, IDamageable
     public UnityEvent OnHitEvent;
     public UnityEvent OnDeadEvent;
 
-    public float maxHp;
-    public float curHp;
+    private bool _isInvincible = false;
 
-    private void Start()
-    {
-        OnDeadEvent.AddListener(Ode);
-    }
+    public int maxHp;
+    public int curHp;
 
     public void GetDamage(int value)
     {
+        if (_isInvincible) return;
         curHp -= value;
         if (curHp <= 0)
             OnDeadEvent?.Invoke();
@@ -35,8 +33,8 @@ public class Health : MonoBehaviour, IDamageable
         OnHpChanged?.Invoke();
     }
 
-    private void Ode()
+    public void ModifyInvincible(bool value)
     {
-        print("DEadae");
+        _isInvincible = value;
     }
 }
