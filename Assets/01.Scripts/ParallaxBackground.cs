@@ -29,7 +29,7 @@ public class ParallaxBackground : MonoBehaviour
     {
         Vector2 cameraDelta = (Vector2)_mainCamTrm.position - _camInitPosition;
 
-        Vector2 moveOffset = new Vector2(cameraDelta.x * _ratio.x, 0) * Time.deltaTime;
+        Vector2 moveOffset = new Vector2(cameraDelta.x * _ratio.x, 0);
         transform.position = _initPosition + moveOffset;
 
         Vector2 deltaFromCam = _mainCamTrm.position - transform.position;
