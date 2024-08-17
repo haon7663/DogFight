@@ -13,6 +13,7 @@ public abstract class Entity : MonoBehaviour
 {
     public Animator AnimatorCompo { get; protected set; }
     public SpriteRenderer RendererCompo { get; protected set; }
+    public Health HealthCompo { get; protected set; }
     public bool IsFacingRight { get; private set; }
     public event Action<bool> OnFlipEvent;
     public WeaponSO CurrentWeapon { get; protected set; }
@@ -24,6 +25,7 @@ public abstract class Entity : MonoBehaviour
     {
         Transform visualTrm = transform.Find("Visual");
         AnimatorCompo = visualTrm.GetComponent<Animator>();
+        HealthCompo = GetComponent<Health>();
         RendererCompo = visualTrm.GetComponent<SpriteRenderer>();
         OriginMaterial = RendererCompo.material;
     }

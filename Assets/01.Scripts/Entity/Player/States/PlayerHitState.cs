@@ -8,6 +8,11 @@ public class PlayerHitState : State<Player>
     {
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+    }
+
     public override void UpdateState()
     {
         if (IsTriggerCalled(AnimationTriggerEnum.EndTrigger))

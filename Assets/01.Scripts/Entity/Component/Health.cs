@@ -9,6 +9,7 @@ public class Health : MonoBehaviour, IDamageable
     public event Action OnHpChanged;
 
     public UnityEvent OnHitEvent;
+    public UnityEvent OnDeadEvent;
 
     public float maxHp;
     public float curHp;
@@ -16,6 +17,8 @@ public class Health : MonoBehaviour, IDamageable
     public void GetDamage(int value)
     {
         curHp -= value;
+        if (curHp <= 0)
+            OnDeadEvent?.Invoke();
         OnHitEvent?.Invoke();
         OnHpChanged?.Invoke();
     }
