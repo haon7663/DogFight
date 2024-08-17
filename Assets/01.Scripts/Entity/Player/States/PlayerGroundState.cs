@@ -17,7 +17,7 @@ public class PlayerGroundState : State<Player>
 
     public override void UpdateState()
     {
-        if(!_owner.IsGround)
+        if(!_owner.IsGround && _stateMachine.GetStateEnum() != (Enum)PlayerStateEnum.Jump)
         {
             _stateMachine.ChangeState(PlayerStateEnum.Fall);
         }

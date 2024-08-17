@@ -18,7 +18,6 @@ public class PlayerAttackState : State<Player>
                 // 여기들에
                 break;
             case WeaponType.TwoHands:
-                // 무기 애니메이션
                 break;
             case WeaponType.ShortSword:
                 // 추가

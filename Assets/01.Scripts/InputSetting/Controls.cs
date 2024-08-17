@@ -100,7 +100,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""AD"",
-                    ""id"": ""6de819e6-8c67-45ad-beb5-326066086355"",
+                    ""id"": ""fddb9e20-bfe8-4384-a898-a83f656f8201"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -111,7 +111,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""009af2fe-225a-420e-9909-47ad074e105f"",
+                    ""id"": ""097fa48f-2bd6-48f3-994c-435dcc04bec8"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -122,7 +122,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""f18dba5b-bef7-48cc-a9cd-ea6941abd235"",
+                    ""id"": ""d783e971-04d8-487f-b7dc-e1435b30f58e"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",

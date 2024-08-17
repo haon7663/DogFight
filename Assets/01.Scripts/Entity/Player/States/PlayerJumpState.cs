@@ -17,6 +17,7 @@ public class PlayerJumpState : PlayerAirState
     public override void UpdateState()
     {
         base.UpdateState();
+        Debug.Log(_owner.MovementCompo.RigidbodyCompo.velocity.y);
         if(_owner.MovementCompo.RigidbodyCompo.velocity.y < 0)
         {
             _stateMachine.ChangeState(PlayerStateEnum.Fall);

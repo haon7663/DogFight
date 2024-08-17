@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private float _moveSpeed = 8f;
     [SerializeField]
     private float _jumpPower = 5f;
+    private Vector2 _movement;
 
     public void Initialize(Player player)
     {
@@ -18,12 +19,20 @@ public class PlayerMovement : MonoBehaviour
         RigidbodyCompo = GetComponent<Rigidbody2D>();
     }
 
+    private void FixedUpdate()
+    {
+        Debug.Log(_movement);
+        RigidbodyCompo.velocity = new Vector2(0, RigidbodyCompo.velocity.y) + _movement;
+    }
+
     public void SetMove(Vector2 dir)
     {
-        float yVel = RigidbodyCompo.velocity.y;
-        bool flip = dir != Vector2.left;
-        _player.Flip(flip);
-        RigidbodyCompo.velocity = new Vector3(0, yVel, 0) +  (Vector3)(dir * _moveSpeed);
+        if (dir != Vector2.zero)
+        {
+            bool flip = dir == Vector2.left ? true : false;
+            _player.Flip(flip);
+        }
+        _movement = dir * _moveSpeed;
     }
 
     public void Jump()
@@ -33,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void StopImmediately(bool withYAxis = false)
     {
-        if(withYAxis)
+        if (withYAxis)
         {
             RigidbodyCompo.velocity = Vector3.zero;
         }

@@ -21,8 +21,9 @@ public class Player : Entity
     [field:SerializeField]
     public InputReader InputCompo { get; private set; }
     public DamageCaster DamageCasterCompo { get; private set; }
-    [field: SerializeField]
     public bool IsGround => IsGroundDetected();
+    [field: SerializeField]
+    public Transform WeaponTrm { get; private set; }
 
     [Header("Ground Check")]
     [SerializeField]
