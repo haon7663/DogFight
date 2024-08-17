@@ -11,20 +11,23 @@ public struct SquareAttackRange
     public Rect range;
 }
 
-public class SqaureDamageCaster : DamageCaster
+public class SquareDamageCaster : MonoBehaviour
 {
+    [SerializeField]
+    private Entity _owner;
     [SerializeField]
     private int _maxColliderCount;
     private Collider2D[] _colliders;
+    [SerializeField]
+    private LayerMask _targetLayer;
 
     private void Awake()
     {
         _colliders = new Collider2D[_maxColliderCount];
     }
 
-    public override void DamageCast(int combo)
+    public void DamageCast(int combo, SquareAttackRange range)
     {
-        SquareAttackRange range = _owner.CurrentWeapon.attackRange[combo];
         int count = Physics2D.OverlapBoxNonAlloc((Vector2)transform.position + range.center * (_owner.IsFacingRight ? Vector2.right : Vector2.left), range.range.size, 0, _colliders, _targetLayer);
 
         if (count <= 0) return;
