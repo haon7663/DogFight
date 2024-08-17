@@ -44,19 +44,19 @@ public class SquareDamageCaster : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
-        SquareAttackRange[] range = _owner.CurrentWeapon.attackRange;
-        if (range.Length <= 0) return;
-        for (int i = 0; i < range.Length; i++)
-        {
-            if (i == range.Length - 1)
-                Gizmos.color = Color.blue;
-            else
-                Gizmos.color = Color.red;
-            if (_owner == null)
-                Gizmos.DrawWireCube((Vector2)transform.position + range[i].center, range[i].range.size);
-            else
-                Gizmos.DrawWireCube((Vector2)transform.position + range[i].center * (_owner.IsFacingRight ? Vector2.right : Vector2.left), range[i].range.size);
-        }
+        //SquareAttackRange[] range = _owner..attackRange;
+        //if (range.Length <= 0) return;
+        //for (int i = 0; i < range.Length; i++)
+        //{
+        //    if (i == range.Length - 1)
+        //        Gizmos.color = Color.blue;
+        //    else
+        //        Gizmos.color = Color.red;
+        //    if (_owner == null)
+        //        Gizmos.DrawWireCube((Vector2)transform.position + range[i].center, range[i].range.size);
+        //    else
+        //        Gizmos.DrawWireCube((Vector2)transform.position + range[i].center * (_owner.IsFacingRight ? Vector2.right : Vector2.left), range[i].range.size);
+        //}
     }
 #endif
 }

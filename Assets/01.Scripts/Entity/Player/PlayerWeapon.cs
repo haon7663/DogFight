@@ -43,7 +43,8 @@ public class PlayerWeapon : MonoBehaviour
         _handAnimator.SetBool(_attackBoolHash, true);
         _handAnimator.SetInteger(_comboCounterHash, _comboCounter);
         _comboCounter++;
-        // DamageCasterCompo.DamageCast(_comboCounter, CurrentWeapon.attackRange[_comboCounter]);
+        //DamageCasterCompo.DamageCast(_comboCounter, CurrentWeapon.attackRange[_comboCounter]); // 콤보에 따라 다른 공격 범위
+        DamageCasterCompo.DamageCast(_comboCounter, CurrentWeapon.attackRange[0]);
         _lastAttackTime = Time.time;
     }
 }
