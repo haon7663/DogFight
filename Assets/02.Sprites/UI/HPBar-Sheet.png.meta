@@ -114,9 +114,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 23
-        width: 38
-        height: 4
+        y: 4
+        width: 8
+        height: 2
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,9 +134,9 @@ TextureImporter:
       name: HPBar-Sheet_1
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 13
-        width: 38
+        width: 10
         height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -145,29 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d739ec5bba9da9439307e12061efa19
-      internalID: -981062166
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HPBar-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2
-        width: 40
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 13aa2b54f0ecac447bfab230d0249ae1
-      internalID: -253909164
+      spriteID: b0bae28bc1095034bae81d68ef90d9fc
+      internalID: -315157675
       vertices: []
       indices: 
       edges: []
@@ -184,8 +163,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       HPBar-Sheet_0: -605085114
-      HPBar-Sheet_1: -981062166
-      HPBar-Sheet_2: -253909164
+      HPBar-Sheet_1: -315157675
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

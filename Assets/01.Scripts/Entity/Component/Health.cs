@@ -13,13 +13,19 @@ public class Health : MonoBehaviour, IDamageable
 
     public float maxHp;
     public float curHp;
-    
+
+    private void Start()
+    {
+        OnDeadEvent.AddListener(Ode);
+    }
+
     public void GetDamage(int value)
     {
         curHp -= value;
         if (curHp <= 0)
             OnDeadEvent?.Invoke();
-        OnHitEvent?.Invoke();
+        else
+            OnHitEvent?.Invoke();
         OnHpChanged?.Invoke();
     }
 
@@ -27,5 +33,10 @@ public class Health : MonoBehaviour, IDamageable
     {
         curHp += value;
         OnHpChanged?.Invoke();
+    }
+
+    private void Ode()
+    {
+        print("DEadae");
     }
 }

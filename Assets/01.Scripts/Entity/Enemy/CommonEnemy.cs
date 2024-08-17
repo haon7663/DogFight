@@ -36,4 +36,10 @@ public class CommonEnemy : Enemy
     {
         StateMachine.ChangeState(CommonEnemyStateEnum.Hit);
     }
+    
+    public void HandleOnDeadEvent()
+    {
+        Debug.Log("GoDeadState");
+        StateMachine.ChangeState(CommonEnemyStateEnum.Dead);
+    }
 }

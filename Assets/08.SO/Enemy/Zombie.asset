@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02f724aac93646d46b25494abf79624d, type: 3}
-  m_Name: TestEnemy
+  m_Name: Zombie
   m_EditorClassIdentifier: 
-  maxHp: 0
+  animatorController: {fileID: 22100000, guid: dfef5ed093e2a7741b89fcecab312c16, type: 2}
+  maxHp: 60
   moveSpeed: 5
-  damage: 0
+  damage: 21
   attackRange:
   - center: {x: 0, y: 0}
     range:

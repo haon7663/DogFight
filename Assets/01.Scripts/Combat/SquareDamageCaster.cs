@@ -54,7 +54,7 @@ public class SquareDamageCaster : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
-        if (!_weapon.CurrentWeapon)
+        if (!_weapon || !_weapon.CurrentWeapon)
             return;
         
         SquareAttackRange[] range = _weapon.CurrentWeapon.attackRange;

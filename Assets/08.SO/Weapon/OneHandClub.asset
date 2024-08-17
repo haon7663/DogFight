@@ -25,6 +25,5 @@ MonoBehaviour:
       y: 0
       width: 1.7
       height: 2
-  throwSprite: {fileID: 0}
-  throwDamage: 0
+  throwSprite: {fileID: -69663200, guid: de1aae7cb247daa4099b780034ae2cdd, type: 3}
   throwingType: 0
