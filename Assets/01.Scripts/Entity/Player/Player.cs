@@ -75,6 +75,7 @@ public class Player : Entity
     {
         int count = Physics2D.OverlapCircleNonAlloc(transform.position, _radius, _colliders, _whatIsInteractable);
 
+        NearestInteractableObj = null;
         if (count <= 0) return;
         Collider2D nearest = null;
         for (int i = 0; i < count; i++)
