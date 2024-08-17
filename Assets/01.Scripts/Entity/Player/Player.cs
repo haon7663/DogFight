@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public enum PlayerStateEnum
 {
@@ -18,9 +21,10 @@ public class Player : Entity
     public StateMachine<Player> StateMachine { get; private set; }
     public PlayerMovement MovementCompo { get; private set; }
     public PlayerWeapon WeaponCompo { get; private set; }
-    [field:SerializeField]
+    [field: SerializeField]
     public InputReader InputCompo { get; private set; }
     public DamageCaster DamageCasterCompo { get; private set; }
+    public IInteractable NearestInteractableObj { get; private set; }
     public bool IsGround => IsGroundDetected();
     [field: SerializeField]
     public Transform WeaponTrm { get; private set; }
@@ -35,6 +39,15 @@ public class Player : Entity
     [SerializeField]
     private LayerMask _whatIsGround;
 
+    [Header("Interactable Object Search")]
+    [SerializeField]
+    private float _radius = 3f;
+    [SerializeField]
+    private int _maxSearch = 5;
+    [SerializeField]
+    private LayerMask _whatIsInteractable;
+    private Collider2D[] _colliders;
+
     protected override void Awake()
     {
         base.Awake();
@@ -47,11 +60,37 @@ public class Player : Entity
 
         InputCompo.OnAttackEvent += () => WeaponCompo.Attack();
         InputCompo.OnInteractEvent += () => WeaponCompo.Interaction();
+
+        _colliders = new Collider2D[_maxSearch];
     }
 
     private void Update()
     {
         StateMachine.CurrentState.UpdateState();
+        SearchInteractableObject();
+    }
+
+    private void SearchInteractableObject()
+    {
+        int count = Physics2D.OverlapCircleNonAlloc(transform.position, _radius, _colliders, _whatIsInteractable);
+
+        if (count <= 0) return;
+        Collider2D nearest = null;
+        for (int i = 0; i < count; i++)
+        {
+            if (nearest == null)
+            {
+                nearest = _colliders[i];
+                continue;
+            }
+            if(Vector2.Distance(transform.position, nearest.transform.position) > Vector2.Distance(transform.position, _colliders[i].transform.position)) 
+            {
+                nearest = _colliders[i];
+            }
+        }
+
+        NearestInteractableObj = nearest.GetComponent<IInteractable>();
+        Debug.Log(NearestInteractableObj);
     }
 
     public override void AnimationTrigger(AnimationTriggerEnum triggerBit)

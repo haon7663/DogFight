@@ -101,7 +101,7 @@ public class PlayerWeapon : MonoBehaviour
         }
         else
         {
-            
+            _playerBase.NearestInteractableObj.Interact(_playerBase);
         }
     }
 
@@ -111,4 +111,5 @@ public class PlayerWeapon : MonoBehaviour
         _handAnimator.GetComponent<SpriteRenderer>().enabled = false;
         //터지는 효과
     }
+
 }
