@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,11 @@ public class AudioManager : Singleton<AudioManager>
 
     [SerializeField] private AudioSource bgmPlayer = null;
     [SerializeField] private AudioSource[] sfxPlayer = null;
+
+    private void Start()
+    {
+        PlayBGM("BGM");
+    }
 
     public void PlayBGM(string bgmName)
     {
@@ -40,15 +46,14 @@ public class AudioManager : Singleton<AudioManager>
             
             foreach (var player in sfxPlayer)
             {
-                // SFXPlayer¿¡¼­ Àç»ý ÁßÀÌÁö ¾ÊÀº Audio Source¸¦ ¹ß°ßÇß´Ù¸é 
+                // SFXPlayerï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Audio Sourceï¿½ï¿½ ï¿½ß°ï¿½ï¿½ß´Ù¸ï¿½ 
                 if (player.isPlaying) continue;
                 player.clip = t.clip;
                 player.Play();
                 return;
             }
-            Debug.Log("¸ðµç ¿Àµð¿À ÇÃ·¹ÀÌ¾î°¡ Àç»ýÁßÀÔ´Ï´Ù.");
             return;
         }
-        Debug.Log(sfxName + " ÀÌ¸§ÀÇ È¿°úÀ½ÀÌ ¾ø½À´Ï´Ù.");
+
     }
 }

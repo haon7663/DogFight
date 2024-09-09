@@ -22,8 +22,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 1
-      height: 2
+      width: 1.5
+      height: 2.25
   weapon: {fileID: 21300000, guid: f95e457ea1e5f3d439c69a4cf67971cf, type: 3}
   dropItems:
   - {fileID: 11400000, guid: 77bd8117d5a5ea649895e50bebd294b1, type: 2}

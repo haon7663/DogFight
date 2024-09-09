@@ -100,7 +100,7 @@ MonoBehaviour:
   <WhiteMaterial>k__BackingField: {fileID: 0}
   <Data>k__BackingField: {fileID: 11400000, guid: 43efec6578720a045a1337998d1edf31, type: 2}
   animator: {fileID: 4122234613986210428}
-  weaponSpriteRenderer: {fileID: 0}
+  weaponSpriteRenderer: {fileID: 7423025057982969654}
   _groundChecker: {fileID: 1942058560130883601}
   _groundCheckWidth: 0.9
   _groundCheckDistance: 0.09

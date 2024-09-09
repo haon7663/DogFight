@@ -20,11 +20,12 @@ public class BattleController : Singleton<BattleController>
 
     public void TimeStop()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 0.001f;
     }
 
     public void LoadScene()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneNames.InGameScene);
     }
 }

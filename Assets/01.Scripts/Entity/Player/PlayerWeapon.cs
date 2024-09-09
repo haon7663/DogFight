@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.Composites;
 
 public class PlayerWeapon : MonoBehaviour
 {
@@ -70,6 +71,8 @@ public class PlayerWeapon : MonoBehaviour
         if (_lastAttackTime + _attackDelay > Time.time) return;
         if (_lastAttackTime + _comboInitTime < Time.time || _comboCounter > 2)
             _comboCounter = 0;
+        
+        AudioManager.Inst.PlaySFX(CurrentWeapon.weaponName);
         
         _comboInitTimer = 0;
         _isAttacking = true;

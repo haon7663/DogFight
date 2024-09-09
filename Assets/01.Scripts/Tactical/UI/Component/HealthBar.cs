@@ -25,6 +25,9 @@ public class HealthBar : MonoBehaviour
     [ContextMenu("Change UI")]
     private void ChangeUI()
     {
+        if (!hpSlider)
+            return;
+        
         var health = _obj.GetComponent<Health>();
         
         var fill = (float)health.curHp / health.maxHp;

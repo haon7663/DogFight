@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90dcd6279dd3f14284dcf9162e57e2a, type: 3}
   m_Name: TwoHandClub
   m_EditorClassIdentifier: 
-  weaponName: TwoHandClub
+  weaponName: Double
   grabSprite: {fileID: 21300000, guid: 2af65a8107e63af40a15baf1e0d1f36a, type: 3}
   attackAble: 1
   animatorController: {fileID: 22100000, guid: 68d45a80a82e7aa4ab13001357c53232, type: 2}

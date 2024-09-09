@@ -11,7 +11,8 @@ public class PlayerHitState : State<Player>
     public override void Enter()
     {
         base.Enter();
-        _owner.SetInvincible(2f);
+        _owner.SetInvincible(1f);
+        _owner.MovementCompo.StopImmediately();
     }
 
     public override void UpdateState()

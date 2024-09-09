@@ -12,6 +12,7 @@ public class CommonEnemyDeadState : State<CommonEnemy>
     {
         base.Enter();
         _owner.gameObject.layer = 8;
+        _owner.MovementCompo.StopImmediately();
     }
 
     public override void UpdateState()

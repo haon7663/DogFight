@@ -24,13 +24,14 @@ public class EnemySpawnController : MonoBehaviour
     [Header("Offset")]
     [SerializeField] private Vector3[] offsetSpawnPoints;
     
-    private float _spawnTime;
+    private float _spawnTime = 2;
     private int _currentWave;
     private float _waveTime = 15;
 
     private void Start()
     {
         _currentWave = 0;
+        _spawnTime = 2;
     }
 
     private void Update()

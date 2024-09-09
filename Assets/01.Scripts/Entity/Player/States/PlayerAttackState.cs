@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using TMPro.EditorUtilities;
 
 public class PlayerAttackState : State<Player>
 {

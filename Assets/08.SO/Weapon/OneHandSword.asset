@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90dcd6279dd3f14284dcf9162e57e2a, type: 3}
   m_Name: OneHandSword
   m_EditorClassIdentifier: 
-  weaponName: OneHandSword
+  weaponName: One
   grabSprite: {fileID: 21300000, guid: 4a3206ed171e32b4c866d46326a9e181, type: 3}
   attackAble: 1
   animatorController: {fileID: 22100000, guid: 99d7ca6427867354e8ffa8674c15974a, type: 2}

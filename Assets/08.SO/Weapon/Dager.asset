@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90dcd6279dd3f14284dcf9162e57e2a, type: 3}
   m_Name: Dager
   m_EditorClassIdentifier: 
-  weaponName: Dager
+  weaponName: Short
   grabSprite: {fileID: 21300000, guid: 3875c9408b869fd4ea2c969f5cd9bd3a, type: 3}
   attackAble: 1
   animatorController: {fileID: 22100000, guid: 24ade497a6c0cfa4e9fd5f5efe721284, type: 2}

@@ -11,6 +11,7 @@ public class CommonEnemyAttackState : State<CommonEnemy>
     public override void Enter()
     {
         base.Enter();
+        _owner.MovementCompo.StopImmediately();
     }
 
     public override void Exit()
@@ -27,14 +28,13 @@ public class CommonEnemyAttackState : State<CommonEnemy>
                 if (targets[0].TryGetComponent<IDamageable>(out var damageable))
                 {
                     damageable.GetDamage(_owner.Data.damage);
+                    CameraManager.Instance.ShakeCamera(10, 0.3f);
                 }
             }
-            Debug.Log("staAtk");
             RemoveTrigger(AnimationTriggerEnum.AttackTrigger);
         }
         if (IsTriggerCalled(AnimationTriggerEnum.EndTrigger))
         {
-            Debug.Log("staMove");
             _stateMachine.ChangeState(CommonEnemyStateEnum.Move);
         }
     }
