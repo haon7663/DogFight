@@ -1,6 +1,8 @@
 # DOG FIGHT
 아무 능력 없는 캐릭터가 돌과 나뭇가지, 적의 무기와 머리까지 무엇이든 주워서 오랫동안 싸워 버티는 게임
 
+https://github.com/user-attachments/assets/aee0eabb-40fe-47ba-80a5-4e331617575d
+
 # 조작법
 이동 / AD
 
